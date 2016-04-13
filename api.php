@@ -41,6 +41,11 @@
 
     if (isset($_GET['getQuerySources'])) {
         $data = array_merge($data, getQuerySources());
+            foreach ($data as $ip => $value)
+            {
+            $newdata[gethostbyaddr("$ip")]=$value;
+            }
+            $data=$newdata;
     }
 
     if (isset($_GET['getAllQueries'])) {
